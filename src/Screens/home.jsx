@@ -3,14 +3,14 @@ import { Link, useNavigate } from "react-router-dom";
 import Arrow from '../assets/arrow.png'
 import { Header } from "../Components";
 import bg from "../assets/herobg.svg";
-import img1 from "../assets/amico.png";
+import img1 from "../assets/ladylaptop.png";
 import { motion } from "framer-motion";
 import pop1 from "../assets/Rectangle1492.png";
 import pop5 from "../assets/Rectangle1485.png";
 import pop6 from "../assets/Rectangle1486.png";
 import pop7 from "../assets/Rectangle1487.png";
 import pop8 from "../assets/Rectangle1488.png";
-import { BsAward, BsClock } from "react-icons/bs";
+import { BsAward, BsCameraVideo, BsClock } from "react-icons/bs";
 import {
   // FaGraduationCap,
   FaVideo,
@@ -51,16 +51,17 @@ import About3 from "../assets/about3.png";
 import Why1 from "../assets/why1.png";
 import Why2 from "../assets/why2.png";
 import Why3 from "../assets/why3.png";
+import { AiOutlineClockCircle } from "react-icons/ai";
 
 const Home = () => {
 	return (
 		<>
 			<HomeBanner />
 			<TopCourses />
-			<NewHow />
+			{/* <NewHow /> */}
+			{/* <Why /> */}
+			<HowItWorks />
 			<AboutUs />
-			<Why />
-			{/* <HowItWorks /> */}
 			<LearningPlan />
 			{/* <Popular /> */}
 			<Testimonial />
@@ -79,15 +80,15 @@ const HomeBanner = () => {
 	return (
 		<div className="tw-relatives">
 			{/* <div className="tw-asbsolute tw-inset-0 tw-bg-black tw-bg-opacity-30 tw-flex tw-justify-center tw-z-50"></div> */}
-			<div className="tw-bg-[#ddeeff] fullHeight">
+			<div className="tw-bg-white  fullHeight">
 				<div
 					className=""
 					style={{
-						background: `url(${bg})`,
+						// background: `url(${bg})`,
 						backgroundPosition: "center",
 						backgroundSize: "cover",
 					}}>
-					<div className="container">
+					<div className="">
 						<Header handleCourses={() => setModal(!modal)} />
 
 						<motion.section
@@ -101,15 +102,15 @@ const HomeBanner = () => {
 								duration: 2,
 								delay: 0.5,
 							}}
-							className="container fullHeight tw-flex text-white bg-transparent">
-							<div className="row container my-auto bg-transparent">
-								<section className="col-lg-6 tw-flex h-100 my-auto bg-transparent">
+							className=" fullHeight  tw-flex text-white bg-transparent">
+							<div className="row tw-relative tw-w-full tw-top-0 bg-transparent">
+								<section className="col-lg-6 tw-absolute tw-left-0 tw-pl-[130px] tw-w-[55%] tw-top-20 tw-z-20 tw-bg-[#ffffff80] tw-border-solid tw-border-r-[1px] tw-border-b-[1px] tw-rounded-3xl tw-border-[#0B2239] tw-rounded tw-h-[80vh] my-auto">
 									<div
-										className="my-auto bg-transparent"
+										className="my-auto bg-transparent tw-flex tw-items-start tw-h-full tw-flex-col tw-justify-center"
 										data-aos="fade-up-right">
-										<h1 className="lg:tw-text-[64px] tw-opacity-81 tw-text-4xl tw-font-semibold tw-text-[#060048] lg:tw-leading-[70px]">
-											Learn anytime,
-											<br /> anywhere without breaking <br /> the bank!
+										<h1 className="lg:tw-text-[64px] tw-opacity-81 tw-text-4xl tw-font-semibold tw-text-[#0B2239] lg:tw-leading-[70px]">
+											Empower Your
+											<br /> Future with Flexible <br /> Learning
 										</h1>
 										<p className="w-75 mb-5 tw-text-[#1b1b1bcc] tw-opacity-80 fontReduce fontReduceMaxhead">
 											You can invest in your future by studying with us whenever
@@ -127,7 +128,7 @@ const HomeBanner = () => {
 									<img
 										src={img1}
 										alt="Banner"
-										className="img-fluid mx-auto tw-mt-20 lg:tw-mt-0"
+										className="img-fluid mx-auto tw-absolute tw-right-0 tw-w-[50%] tw-top-0 tw-h-[100vh] tw-mt-20 lg:tw-mt-0"
 									/>
 								</div>
 							</div>
@@ -153,12 +154,12 @@ export const MainButton = () => {
     <div className="tw-flex">
       <button
         onClick={() => navigate("/register")}
-        className="text-decoration-none tw-bg-[#0f0bc7] tw-text-white text-capitalize tw-h-14 tw-w-32"
+        className="text-decoration-none tw-bg-[#0B2239] rounded-2xl tw-text-white text-capitalize tw-h-14 tw-w-32"
       >
         Get Started
       </button>
       <div>
-        <img src={Gif} alt="" className="-tw-mt-16 -tw-mr-9" />
+        {/* <img src={Gif} alt="" className="-tw-mt-16 -tw-mr-9" /> */}
       </div>
     </div>
   );
@@ -253,7 +254,7 @@ export const Popular = () => {
   );
 };
 
-const TopCourses = () => {
+const   TopCourses = () => {
   let { course } = useContext(GlobalState),
     [state, setState] = useState(null);
 
@@ -261,20 +262,65 @@ const TopCourses = () => {
     setState(course?.data);
   }, [course?.data]);
 
+  let data = [
+    {
+      image: require('../assets/Leadership.png'),
+      title: 'Leadership'
+  },
+  {
+    image: require('../assets/Girlwithglassy.png'),
+    title: 'Human Resource Management'
+},
+{
+  image: require('../assets/Yellowteacher.png'),
+  title: 'Administration'
+},
+{
+  image: require('../assets/mama.png'),
+  title: 'Legal & Law'
+},
+{
+  image: require('../assets/Theman.png'),
+  title: 'Customer Psycology'
+},
+{
+  image: require('../assets/Yellowteacher.png'),
+  title: 'Administration'
+}
+  ]
+
   if (!state) return;
   return (
-    <div>
-      <div className="container py-3 py-md-5 tw-mt-6">
-      <div className="tw-flex tw-gap-6 tw-items-center">
-        <h3 className="lg:tw-text-4xl tw-text-2xl tw-font-bold tw-text-[#070565]">
+    <div className="p-4">
+      <div className=" py-3 py-md-5 tw-mt-6 tw-bg-[#0B2239] tw-rounded-3xl">
+        <div className="container py-4">
+      <div className="tw-flex tw-gap-6 tw-justify-between tw-items-center">
+        <h3 className="lg:tw-text-4xl tw-text-2xl tw-font-bold tw-text-white">
           Browse Our List Of <br />{" "}
-          <span className="tw-text-4xl tw-font-bold tw-text-[#1a10c5]">
-            Courses
+          <span className="tw-text-4xl tw-mt-4 tw-font-bold tw-text-white">
+            Our Courses
           </span>
         </h3>
-        <img src={Arrow} alt="" className="tw-h-12" />
+        <p className="text-white tw-w-[350px] tw-text-xl">You can invest in your future by studying with us whenever and wherever you want.</p>
+        {/* <img src={Arrow} alt="" className="tw-h-12" /> */}
       </div>
-        <CoursesOutline coursesDetails={state} />
+      </div>
+        {/* <CoursesOutline coursesDetails={state} /> */}
+        <div className="tw-grid container tw-grid-cols-3 tw-gap-8 tw-my-6">
+          {data?.map((each, index)=>(
+          <div key={index}>
+            <img src={each?.image} />
+            <p className="tw-font-650 mt-4 text-white tw-text-3xl">{each?.title}</p>
+            <p className="tw-font-250 mt-4 text-white tw-text-lg">You can invest in your future by studying with us whenever and wherever you want.</p>
+            <p className="tw-font-250 mt-4 mb-4 text-white tw-text-lg tw-flex tw-items-center">
+              <BsCameraVideo className="text-white tw-mr-3" />
+              <span className="tw-mr-3">4 Videos</span>
+              <AiOutlineClockCircle className="tw-mr-3" />
+              <span className="tw-mr-3">23 Hours</span>
+            </p>
+            <a className="tw-text-[#0B2239] tw-bg-white py-3 px-4 tw-text-xl tw-rounded-3xl">Learn More</a>
+            </div>))}
+        </div>
       </div>
     </div>
   );
@@ -370,31 +416,66 @@ const CoursesOutline = ({ coursesDetails, noLink }) => {
 };
 
 export const HowItWorks = () => {
+
+  let data1 = [
+    {
+      title:"View Courses",
+      text:"Take a look at our courses to explore the available  options and gain insight into the various learning opportunities we offer."
+    },
+    {
+      title:"Pick A Course",
+      text:"Choose a course of your choice from our courses and embark  on a transformative learning journey to enhance your skill and knowledge."
+    },
+    {
+      title:"Choose A Plan ",
+      text:"Pick a plan that aligns effectively with your unique needs."
+    }
+  ]
+
+  let data2 = [
+    {
+      title:"Make Payment",
+      text:"Select the payment method that suits your preference and follow the required steps to finalize the transaction."
+    },
+    {
+      title:"Confirm Payment",
+      text:"Verify payment to ensure that the transaction has been successfully processed."
+    },
+    {
+      title:"Sign Up",
+      text:"Create an account by providing your necessary information and completing the registration process."
+    }
+  ]
+
+
   return (
     <div
-      className=""
-      style={{
-        background: "linear-gradient(106.75deg, #918FDB 0%, #0D03C3 100%)",
-      }}
+      className="tw-mt-20"
     >
       <div className="container py-3 py-md-5">
-        <div className="text-center text-white">
-          <h1 className="lg:tw-text-4xl tw-text-2xl tw-text-white tw-font-bold sansation tw-uppercase">
-            how it works
+        <div className=" text-white">
+          <h1 className="lg:tw-text-4xl text-center tw-text-2xl tw-text-black tw-font-black sansation">
+            How it works
           </h1>
-          <p className="lg:tw-text-3xl tw-opacity-80  tw-leading-[-0.03em]">
-            Our e-learning app lets you learn on-the-go, see how it works.
-          </p>
-        </div>
-        <div className="tw-mt-2" data-aos="zoom-in" data-aos-duration="3000">
-          <img src={Howmain} alt="" className="lg:tw-h-auto tw-h-72" />
-          {/* <div className="d-none d-md-flex">
-            <img src={how1} alt="how it works" className="img-fluid" />
+
+          <div className="container tw-grid tw-grid-cols-8 tw-gap-8 tw-mt-12">
+            <div className="tw-col-span-3">
+              {data1?.map((each, index)=>(
+              <div key={index} className="tw-border-solid tw-px-8 tw-py-4 tw-border-b-[1px] tw-h-[130px] tw-border-[#0B2239] tw-mt-4 tw-flex tw-items-start tw-flex-col">
+                <p className="tw-text-[#0B2239] tw-text-2xl tw-font-bold">{each?.title}</p>
+                <p className="tw-text-[#0B2239] tw-my-3">{each?.text}</p>
+              </div>))}
+            </div>
+            <img src={require('../assets/Maskgroup.png')} className="tw-w-[350px] tw-h-full tw-col-span-2" />
+            <div className="tw-col-span-3">
+            {data1?.map((each, index)=>(
+              <div key={index} className="tw-border-solid tw-px-8 tw-py-4 tw-border-b-[1px] tw-h-[130px] tw-border-[#0B2239] tw-mt-4 tw-flex tw-items-start tw-flex-col">
+                <p className="tw-text-[#0B2239] tw-text-2xl tw-font-bold">{each?.title}</p>
+                <p className="tw-text-[#0B2239] tw-my-3">{each?.text}</p>
+              </div>))}
+            </div>
           </div>
-          <div className="d-flex d-md-none">
-            <img src={how2} alt="how it works" className="img-fluid" />
-            <img src={how3} alt="how it works" className="img-fluid" />
-          </div> */}
+          
         </div>
       </div>
     </div>
@@ -1032,59 +1113,43 @@ const AboutUs = () => {
   return (
     <div>
       <div
-        style={{
-          background: "linear-gradient(90deg, #0D3E6F 0%, #363795 100%)",
-        }}
         className="w-full tw-my-20 tw-py-10"
       >
         <div className="container tw-bg-transparent">
-          <h4 className="tw-text-4xl tw-text-center tw-font-bold tw-text-white">
-            ABOUT US
+          <h4 className="tw-text-4xl tw-text-center tw-font-bold">
+            About Us
           </h4>
-          <p className="tw-text-2xl tw-pt-4 tw-font-normal poppins tw-text-white tw-text-center">
-            Who We Are And What We Do
-          </p>
-          <div className="tw-grid lg:tw-grid-cols-2 tw-gap-5 tw-mt-10">
-            <div
-              data-aos="zoom-in-up"
-              data-aos-duration="1500"
-              className="tw-flex tw-flex-col lg:tw-flex-row tw-gap-5 tw-items-center"
-            >
-              <img src={About1} alt="" className="" />
-              <div className="tw-space-y-4">
-                <img src={About2} alt="" className="" />
-                <img src={About3} alt="" className="" />
+          
+          <div className="tw-grid lg:tw-grid-cols-9 tw-gap-3 tw-mt-10">
+            <div className="col-span-1 ">
+              <div className="tw-bg-[#0B2239] tw-text-white tw-pt-20 tw-pb-8 tw-items-center tw-flex tw-justify-center tw-flex-col tw-rounded-tl-full">
+                <p className=" tw-text-2xl tw-font-500">45+</p>
+                <p className=" tw-text-xl">Courses</p>
+              </div>
+              <div className="tw-bg-[#0B2239] tw-text-white tw-pt-10 tw-pb-10 tw-items-center tw-flex tw-my-[1px] tw-justify-center tw-flex-col">
+                <p className=" tw-text-2xl tw-font-500">100+</p>
+                <p className=" tw-text-xl">Videos</p>
+              </div>
+              <div className="tw-bg-[#0B2239] tw-text-white tw-pt-10 tw-pb-10 tw-items-center tw-flex tw-my-[1px] tw-justify-center tw-flex-col">
+                <p className=" tw-text-2xl tw-font-500">500+</p>
+                <p className=" tw-text-xl">Hours</p>
+              </div>
+              <div className="tw-bg-[#0B2239] tw-text-white tw-pt-8 tw-pb-20 tw-items-center tw-flex tw-justify-center tw-flex-col tw-rounded-bl-full">
+                <p className=" tw-text-2xl tw-font-500">120+</p>
+                <p className=" tw-text-xl">Students</p>
               </div>
             </div>
-            <div data-aos="fade-up" data-aos-duration="1500">
-              <h6 className="tw-text-white tw-text-2xl tw-font-semobold tw-pt-4">
-                What BCT Academy offers{" "}
-              </h6>
-              <p className="tw-text-base poppins tw-font-extralight tw-text-gray-100 tw-pt-6">
-                At BCT Academy, we believe learning should be a fun and engaging
-                experience. Our mission is to create an environment where
-                learners can explore the exciting world of technology, acquire
-                valuable skills, and achieve their learning goals at their own
-                pace. We understand that traditional learning methods may not
-                always capture the interest and motivation of students. This is
-                the reason we have designed our courses and learning materials
-                to be interactive, dynamic, and, most importantly, fun! We
-                believe that when learners are actively engaged and inspired,
-                their learning becomes more effective and meaningful. With our
-                self-paced learning approach, you have the freedom to set your
-                own study schedule and make progress at a pace that suits you
-                best. Whether you're a busy professional, a student, or simply
-                someone passionate about technology, our courses are designed to
-                fit into your life seamlessly. Join us on this exciting learning
-                adventure! we're here to support you every step of the way.
-              </p>
-              <button
-                onClick={() => navigate("/register")}
-                className="tw-mt-16 tw-h-12 tw-w-56 tw-rounded-2xl tw-bg-white tw-text-[#0f0bc7] lato tw-text-lg"
-              >
-                Get Started
-              </button>
+
+            <div className="tw-col-span-4">
+              <img src={require('../assets/fineladylaptop.png')} className=" tw-h-[90vh]" />
             </div>
+
+            <div className="tw-col-span-4">
+              <p className="tw-leading-loose tw-text-lg">At ICS Academy, we believe learning should be a fun and engaging experience. Our mission is to create an environment where learners can explore the exciting world of technology, acquire valuable skills, and achieve their learning goals at their own pace. We understand that traditional learning methods may not always capture the interest and motivation of students.</p>
+              <p className="tw-leading-loose  tw-text-lg">This is the reason we have designed our courses and learning materials to be interactive, dynamic, and, most importantly, fun! We believe that when learners are actively engaged and inspired, their learning becomes more effective and meaningful. With our self-paced learning approach, you have the freedom to set your own study schedule and make progress at a pace that suits you best. Whether you are a busy professional, a student, or simply someone passionate about technology, our courses are designed to it into your life, seamlessly. Join us on this exciting learning adventure! we're here to support you every step of the way.</p>
+              <a className="tw-text-white tw-bg-[#0B2239] tw-text-xl tw-py-2 tw-px-5 tw-rounded-3xl">Get Started</a>
+            </div>
+            
           </div>
         </div>
       </div>

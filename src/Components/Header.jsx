@@ -1,6 +1,6 @@
 import { RxDashboard } from "react-icons/rx";
 import logo from "../assets/logo2.png";
-import Logo2 from "../assets/logo.png";
+import Logo2 from "../assets/icslogo.png";
 import { motion } from "framer-motion";
 import { Link, useNavigate } from "react-router-dom";
 import { IconContext } from "react-icons/lib";
@@ -36,7 +36,7 @@ const Header = ({ handleCourses, courses }) => {
 				stiffness: 50,
 				type: "spring",
 			}}
-			className="">
+			className="container">
 			<div className="tw-flex tw-justify-between tw-items-center tw-h-12 lg:tw-h-20">
 				<div>
 					<LogoDark />
@@ -57,20 +57,15 @@ const Header = ({ handleCourses, courses }) => {
 					<div
 						onClick={handleCourses}
 						className="tw-cursor-pointer tw-flex tw-gap-1">
-						<div className="tw-mt-2">
+						{/* <div className="tw-mt-2">
 							<IconContext.Provider value={{ color: "#14126d" }}>
 								<RxDashboard size={15} />
 							</IconContext.Provider>
-						</div>
+						</div> */}
 						<p className="tw-text-2xl tw-font-bold tw-text-[#14126d]">
 							<Link className="tw-text-base tw-font-medium krub">Courses</Link>
 						</p>
 					</div>
-					<p className="tw-text-2xl tw-font-bold tw-text-[#14126d]">
-						<Link to="/contactus" className="tw-text-base tw-font-medium">
-							Contact Us
-						</Link>
-					</p>
 					<p className="tw-text-2xl tw-font-bold tw-text-[#14126d]">
 						<Link to="/blog" className="tw-text-base tw-font-medium">
 							Blog
@@ -81,12 +76,12 @@ const Header = ({ handleCourses, courses }) => {
 					<Link
 						to="/login"
 						className="mx-1 btn rounded-pill py-2 tw-text-base krub tw-font-medium px-md-4 px-3 tw-text-[#14126d] text-capitalize">
-						sign in
+						Sign in
 					</Link>
 					<Link
 						to="/register"
-						className=" btn tw-bg-[#0f0bc7] rounded-pill tw-text-[12px] py-2 px-md-4 px-3 tw-text-white text-capitalize">
-						get started
+						className=" btn tw-bg-[#0B2239] rounded-pill tw-text-[12px] py-2 px-md-4 px-3 tw-text-white text-capitalize">
+						Sign Up
 					</Link>
 				</div>
 			</div>
@@ -122,11 +117,6 @@ const Header = ({ handleCourses, courses }) => {
 								</p>
 							</div>
 							<p className="tw-text-2xl tw-font-bold tw-text-white">
-								<Link to="/contactus" className="tw-text-xl">
-									Contact Us
-								</Link>
-							</p>
-							<p className="tw-text-2xl tw-font-bold tw-text-white">
 								<Link to="/blog" className="tw-text-xl">
 									Blog
 								</Link>
@@ -140,7 +130,7 @@ const Header = ({ handleCourses, courses }) => {
 								<button
 									onClick={() => navigate("/register")}
 									className="tw-h-12 tw-w-32 tw-bg-orange-400 tw-rounded-lg tw-text-white tw-text-xl tw-font-bold">
-									Get Started
+									Sign up
 								</button>
 							</div>
 						</div>
@@ -155,7 +145,7 @@ const Header = ({ handleCourses, courses }) => {
 									<Link
 										to="/register"
 										className=" btn tw-bg-white rounded-pill tw-text-[12px] py-2 px-md-4 px-3 tw-text-[#0f0bc7] text-capitalize">
-										get started
+										Sign up
 									</Link>
 								</div>
 							</div>
