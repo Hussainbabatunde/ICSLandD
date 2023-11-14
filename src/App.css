@@ -80,6 +80,10 @@ body {
 .myCursor {
 	cursor: pointer;
 }
+
+.debug {
+	border: 1px solid red;
+}
 .sansation {
 	font-family: "Sansation";
 }
